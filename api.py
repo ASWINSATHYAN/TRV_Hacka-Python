@@ -8,7 +8,7 @@ import json
 
 
 app = flask.Flask(__name__)
-app.config["DEBUG"] = True
+# app.config["DEBUG"] = True
 df = pd.read_csv("train_data.csv")
 df_X = df.iloc[:, 1:37].copy()  # Train Input
 df_Y = df.iloc[:, 37:43].copy()  # Train Output
@@ -70,5 +70,5 @@ def predictCourse():
     predictedCourses = getCourse()
     response = {"Courses": predictedCourses}
     return jsonify(response);
-app.run(debug=True, use_reloader=False)
+app.run(use_reloader=False)
 
