@@ -38,35 +38,38 @@ def hello_world():
     return 'Hey its Python Flask application!'
 
 @app.route('/predictCourse', methods=['POST'])
-def predictCourse():
-    coursesArray.clear();
-    applicationData =  json.loads(request.data)
-    for data in applicationData.keys():
-        if isinstance(applicationData[data], bool):
-            if(applicationData[data]):
-                applicationData[data] = 1
-            else:
-                applicationData[data] = 0
-    with open("data.csv", 'r') as resultFile:
-        lines = list(resultFile)
+def api_response():
+    if request.method == 'POST':
+        return jsonify(**request.json)
+# def predictCourse():
+#     coursesArray.clear();
+#     applicationData =  json.loads(request.data)
+#     for data in applicationData.keys():
+#         if isinstance(applicationData[data], bool):
+#             if(applicationData[data]):
+#                 applicationData[data] = 1
+#             else:
+#                 applicationData[data] = 0
+#     with open("data.csv", 'r') as resultFile:
+#         lines = list(resultFile)
 
-    if (len(lines)) > 0:
-        values = lines[2].split(",")
-        for index, data in enumerate(list(applicationData.values())):
-            values[index] = data
-        applicationData = values
+#     if (len(lines)) > 0:
+#         values = lines[2].split(",")
+#         for index, data in enumerate(list(applicationData.values())):
+#             values[index] = data
+#         applicationData = values
 
-    with open("data.csv", 'w') as resultFile:
-        wr = csv.writer(resultFile, dialect='excel')
-        if isinstance(applicationData, dict):
-            wr.writerow(applicationData.keys())
-            wr.writerow(applicationData.values())
-        else:
-            wr.writerow(json.loads(request.data).keys())
-            wr.writerow(applicationData)
-    predictedCourses = getCourse()
-    response = {"Courses": predictedCourses}
-    return jsonify(**response);
+#     with open("data.csv", 'w') as resultFile:
+#         wr = csv.writer(resultFile, dialect='excel')
+#         if isinstance(applicationData, dict):
+#             wr.writerow(applicationData.keys())
+#             wr.writerow(applicationData.values())
+#         else:
+#             wr.writerow(json.loads(request.data).keys())
+#             wr.writerow(applicationData)
+#     predictedCourses = getCourse()
+#     response = {"Courses": predictedCourses}
+#     return jsonify(**response);
 
 if __name__ == '__main__':
     app.debug = True
