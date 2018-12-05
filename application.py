@@ -56,15 +56,15 @@ def predictCourse():
             values[index] = data
         applicationData = values
 
-#     with open("data.csv", 'w') as resultFile:
-#         wr = csv.writer(resultFile, dialect='excel')
-#         if isinstance(applicationData, dict):
-#             wr.writerow(applicationData.keys())
-#             wr.writerow(applicationData.values())
-#         else:
-#             wr.writerow(json.loads(request.data).keys())
-#             wr.writerow(applicationData)
-#     resultFile.close();
+    with open("data.csv", 'w') as resultFile:
+        wr = csv.writer(resultFile, dialect='excel')
+        if isinstance(applicationData, dict):
+            wr.writerow(applicationData.keys())
+            wr.writerow(applicationData.values())
+        else:
+            wr.writerow(json.loads(request.data).keys())
+            wr.writerow(applicationData)
+    resultFile.close();
 #     predictedCourses = getCourse()
     response = {"Courses": []}
     return jsonify(**response)
