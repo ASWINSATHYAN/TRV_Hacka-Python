@@ -50,23 +50,23 @@ def predictCourse():
     with open("data.csv", 'r') as resultFile:
         lines = list(resultFile)
     resultFile.close();
-    if (len(lines)) > 0:
-        values = lines[2].split(",")
-        for index, data in enumerate(list(applicationData.values())):
-            values[index] = data
-        applicationData = values
+#     if (len(lines)) > 0:
+#         values = lines[2].split(",")
+#         for index, data in enumerate(list(applicationData.values())):
+#             values[index] = data
+#         applicationData = values
 
-    with open("data.csv", 'w') as resultFile:
-        wr = csv.writer(resultFile, dialect='excel')
-        if isinstance(applicationData, dict):
-            wr.writerow(applicationData.keys())
-            wr.writerow(applicationData.values())
-        else:
-            wr.writerow(json.loads(request.data).keys())
-            wr.writerow(applicationData)
-    resultFile.close();
-    predictedCourses = getCourse()
-    response = {"Courses": predictedCourses}
+#     with open("data.csv", 'w') as resultFile:
+#         wr = csv.writer(resultFile, dialect='excel')
+#         if isinstance(applicationData, dict):
+#             wr.writerow(applicationData.keys())
+#             wr.writerow(applicationData.values())
+#         else:
+#             wr.writerow(json.loads(request.data).keys())
+#             wr.writerow(applicationData)
+#     resultFile.close();
+#     predictedCourses = getCourse()
+    response = {"Courses": []}
     return jsonify(**response)
 
 if __name__ == '__main__':
