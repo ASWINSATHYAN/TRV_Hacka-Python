@@ -35,7 +35,7 @@ def getCourse():
     return coursesArray
 @app.route('/')
 def hello_world():
-  return 'Hey its Python Flask application!'
+    return 'Hey its Python Flask application!'
 
 @app.route('/predictCourse', methods=['POST'])
 def predictCourse():
