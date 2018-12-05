@@ -68,6 +68,12 @@ def predictCourse():
     response = {"Courses": predictedCourses}
     return jsonify(**response);
 
+@app.route('/sample', methods=['POST'])
+def api_response():
+    from flask import jsonify
+    if request.method == 'POST':
+        return jsonify(**request.json)
+
 if __name__ == '__main__':
     app.debug = True
     app.run()
