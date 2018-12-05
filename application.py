@@ -66,7 +66,7 @@ def predictCourse():
     resultFile.close();
     predictedCourses = getCourse()
     response = {"Courses": []}
-    return applicationData
+    return jsonify(**response)
 
 if __name__ == '__main__':
     app.debug = True
