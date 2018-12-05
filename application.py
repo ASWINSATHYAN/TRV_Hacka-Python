@@ -66,7 +66,8 @@ def predictCourse():
             wr.writerow(applicationData)
     predictedCourses = getCourse()
     response = {"Courses": predictedCourses}
-    return jsonify(response);
+    return jsonify(**response);
 
 if __name__ == '__main__':
-  app.run()
+    app.debug = True
+    app.run()
