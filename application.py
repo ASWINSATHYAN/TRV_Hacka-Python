@@ -56,7 +56,7 @@ def predictCourse():
             values[index] = data
         applicationData = values
     with open("data.csv", 'w') as resultFile:
-        wr = csv.writer(resultFile, dialect='excel')
+        wr = csv.writer(resultFile)
 #         if isinstance(applicationData, dict) and applicationData:
 #             wr.writerow(applicationData.keys())
 #             wr.writerow(applicationData.values())
