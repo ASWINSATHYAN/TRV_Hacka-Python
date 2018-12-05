@@ -50,11 +50,11 @@ def predictCourse():
     with open("data.csv", 'r') as resultFile:
         lines = list(resultFile)
     resultFile.close();
-#     if (len(lines)) > 0:
-#         values = lines[2].split(",")
-#         for index, data in enumerate(list(applicationData.values())):
-#             values[index] = data
-#         applicationData = values
+    if (len(lines)) > 0:
+        values = lines[2].split(",")
+        for index, data in enumerate(list(applicationData.values())):
+            values[index] = data
+        applicationData = values
 
 #     with open("data.csv", 'w') as resultFile:
 #         wr = csv.writer(resultFile, dialect='excel')
