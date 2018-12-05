@@ -6,8 +6,7 @@ from sklearn.ensemble import RandomForestClassifier
 import csv
 import json
 
-
-app = flask.Flask(__name__)
+app = Flask(__name__)
 df = pd.read_csv("train_data.csv")
 df_X = df.iloc[:, 1:37].copy()  # Train Input
 df_Y = df.iloc[:, 37:43].copy()  # Train Output
@@ -34,6 +33,9 @@ def getCourse():
             if (y == 1):
                 findCourse(i)
     return coursesArray
+@app.route('/')
+def hello_world():
+  return 'Hey its Python Flask application!'
 
 @app.route('/predictCourse', methods=['POST'])
 def predictCourse():
@@ -65,5 +67,6 @@ def predictCourse():
     predictedCourses = getCourse()
     response = {"Courses": predictedCourses}
     return jsonify(response);
-app.run(use_reloader=False)
 
+if __name__ == '__main__':
+  app.run()
