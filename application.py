@@ -70,7 +70,8 @@ def predictCourse():
 
 @app.route('/sample', methods=['POST'])
 def api_response():
-    return "Hi"
+    response = {"a": "b"}
+    return jsonify(response)
 
 if __name__ == '__main__':
     app.debug = True
