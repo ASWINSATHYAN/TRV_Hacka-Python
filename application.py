@@ -6,7 +6,7 @@ from sklearn.ensemble import RandomForestClassifier
 import csv
 import json
 
-app = Flask(__name__)
+app = flask.Flask(__name__)
 df = pd.read_csv("train_data.csv")
 df_X = df.iloc[:, 1:37].copy()  # Train Input
 df_Y = df.iloc[:, 37:43].copy()  # Train Output
