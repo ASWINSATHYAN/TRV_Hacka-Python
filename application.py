@@ -49,7 +49,7 @@ def predictCourse():
                 applicationData[data] = 0
     with open("data.csv", 'r') as resultFile:
         lines = list(resultFile)
-
+    resultFile.close();
     if (len(lines)) > 0:
         values = lines[2].split(",")
         for index, data in enumerate(list(applicationData.values())):
@@ -64,15 +64,10 @@ def predictCourse():
         else:
             wr.writerow(json.loads(request.data).keys())
             wr.writerow(applicationData)
+    resultFile.close();
     predictedCourses = getCourse()
     response = {"Courses": predictedCourses}
     return jsonify(**response);
-
-@app.route('/sample', methods=['POST'])
-def api_response():
-    from flask import jsonify
-    if request.method == 'POST':
-        return jsonify(**request.json)
 
 if __name__ == '__main__':
     app.debug = True
