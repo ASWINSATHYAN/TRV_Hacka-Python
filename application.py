@@ -66,7 +66,7 @@ def predictCourse():
             wr.writerow(applicationData)
     predictedCourses = getCourse()
     response = {"Courses": predictedCourses}
-    return jsonify(**response);
+    return jsonify({"test": "test1"});
 
 @app.route('/sample', methods=['POST'])
 def api_response():
