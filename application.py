@@ -59,12 +59,12 @@ def predictCourse():
     with open("data.csv", 'w') as resultFile:
         if resultFile is not None:
             wr = csv.writer(resultFile, dialect='excel')
-            if isinstance(applicationData, dict):
-                wr.writerow(applicationData.keys())
-                wr.writerow(applicationData.values())
-            else:
-                wr.writerow(json.loads(request.data).keys())
-                wr.writerow(applicationData)
+#             if isinstance(applicationData, dict):
+#                 wr.writerow(applicationData.keys())
+#                 wr.writerow(applicationData.values())
+#             else:
+#                 wr.writerow(json.loads(request.data).keys())
+#                 wr.writerow(applicationData)
     resultFile.close();
     predictedCourses = getCourse()
     response = {"Courses": predictedCourses}
