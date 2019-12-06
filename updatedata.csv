@@ -1,0 +1,2 @@
+Id,FromCountry,ToCountry,Currency,Amount,SenderFirstName,SenderLastName,ReceiverFirstName,ReceiverLastName,Type,Purpose,PEP,FullyComplied,PartiallyComplied,NeedFurtherScrutiny,NotComplied
+6,1,5,11.0,3000.0,0,0,0,0,21,23,0,1,0,0,0
